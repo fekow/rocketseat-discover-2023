@@ -1,5 +1,5 @@
 * {
-  margin: 0; 
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   user-select: none;
@@ -14,36 +14,46 @@ li {
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(255, 255, 255, 0.05);
   --highlight-color: rgba(255, 255, 255, 0.2);
-  --switch-bg-url: url('./assets/moon-stars.svg');
-  --bg-url: url('./assets/bg-mobile.jpg');
+  --switch-bg-url: url("./assets/moon-stars.svg");
+  --bg-url: url("./assets/bg-mobile.jpg");
   --toggle-handle-color: #ffffff;
 }
 .light {
   --text-color: #000000;
-  --stroke-color: rgba(0, 0, 0 , 0.5);
+  --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
-  --switch-bg-url: url('./assets/sun.svg');
-  --bg-url: url('./assets/bg-mobile-light.jpg');
+  --switch-bg-url: url("./assets/sun.svg");
+  --bg-url: url("./assets/bg-mobile-light.jpg");
 }
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url("./assets/bg-desktop.jpg");
+  }
+  .light {
+    --bg-url: url("./assets/bg-desktop-light.jpg");
+  }
+}
+
 body * {
-  font-family: Inter; 
+  font-family: Inter;
   color: var(--text-color);
 }
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
   transition: background 0.3s ease-in;
+  min-height: 100vh;
 }
 #container {
   margin: 56px auto 0;
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   padding: 24px;
-  height: 712px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
   gap: px;
 }
@@ -103,7 +113,6 @@ body {
   font-weight: 500;
   text-decoration: none;
   line-height: 24px; /* 150% */
-
 }
 
 #social-links {
@@ -124,9 +133,7 @@ body {
 }
 
 #social-links a:hover {
-
   background-color: var(--highlight-color);
-
 }
 
 footer {
@@ -142,14 +149,15 @@ footer {
   border-radius: 9999px;
   border: 1px solid var(--stroke-color);
   background: var(--surface-color);
-  backdrop-filter: blur(4px);  position: relative;
+  backdrop-filter: blur(4px);
+  position: relative;
   width: 64px;
   height: 24px;
   margin: 8px 0;
 }
 
 #switch button:hover {
-  outline: 8px solid var(--highlight-color-light-mode, rgba(0, 0, 0, 0.10));
+  outline: 8px solid var(--highlight-color-light-mode, rgba(0, 0, 0, 0.1));
 }
 #switch button {
   cursor: pointer;
@@ -163,8 +171,49 @@ footer {
   height: 32px;
   background: var(--toggle-handle-color) var(--switch-bg-url) no-repeat center;
   border-radius: 50%;
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10);
-  transition: outline-width 0.4s ease-in, right 0.4s linear(0 0%, 0 2.27%, 0.02 4.53%, 0.04 6.8%, 0.06 9.07%, 0.1 11.33%, 0.14 13.6%, 0.25 18.15%, 0.39 22.7%, 0.56 27.25%, 0.77 31.8%, 1 36.35%, 0.89 40.9%, 0.85 43.18%, 0.81 45.45%, 0.79 47.72%, 0.77 50%, 0.75 52.27%, 0.75 54.55%, 0.75 56.82%, 0.77 59.1%, 0.79 61.38%, 0.81 63.65%, 0.85 65.93%, 0.89 68.2%, 1 72.7%, 0.97 74.98%, 0.95 77.25%, 0.94 79.53%, 0.94 81.8%, 0.94 84.08%, 0.95 86.35%, 0.97 88.63%, 1 90.9%, 0.99 93.18%, 0.98 95.45%, 0.99 97.73%, 1 100%);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: outline-width 0.4s ease-in,
+    right 0.4s
+      linear(
+        0 0%,
+        0 2.27%,
+        0.02 4.53%,
+        0.04 6.8%,
+        0.06 9.07%,
+        0.1 11.33%,
+        0.14 13.6%,
+        0.25 18.15%,
+        0.39 22.7%,
+        0.56 27.25%,
+        0.77 31.8%,
+        1 36.35%,
+        0.89 40.9%,
+        0.85 43.18%,
+        0.81 45.45%,
+        0.79 47.72%,
+        0.77 50%,
+        0.75 52.27%,
+        0.75 54.55%,
+        0.75 56.82%,
+        0.77 59.1%,
+        0.79 61.38%,
+        0.81 63.65%,
+        0.85 65.93%,
+        0.89 68.2%,
+        1 72.7%,
+        0.97 74.98%,
+        0.95 77.25%,
+        0.94 79.53%,
+        0.94 81.8%,
+        0.94 84.08%,
+        0.95 86.35%,
+        0.97 88.63%,
+        1 90.9%,
+        0.99 93.18%,
+        0.98 95.45%,
+        0.99 97.73%,
+        1 100%
+      );
 }
 
 .light #switch button {
